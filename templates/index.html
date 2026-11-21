@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 17px 0 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+        }
+
+        .result h3 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .result p {
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 22px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Performance Prediction System</h1>
+        <p>Smart Academic Performance Analysis</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+
+            <h2>Student Performance Analysis</h2>
+
+            <p class="description">
+                Enter the student's academic details to predict
+                performance using Machine Learning.
+            </p>
+
+            <form method="POST">
+
+                <label>Student Name</label>
+                <input type="text" name="student_name"
+                       value="{{ student_name }}" required>
+
+                <label>Previous Exam Marks (0–100)</label>
+                <input type="number" name="marks"
+                       min="0" max="100" step="any"
+                       value="{{ marks }}" required>
+
+                <label>Attendance Percentage (0–100)</label>
+                <input type="number" name="attendance"
+                       min="0" max="100" step="any"
+                       value="{{ attendance }}" required>
+
+                <label>Daily Study Hours (0–24)</label>
+                <input type="number" name="hours"
+                       min="0" max="24" step="any"
+                       value="{{ hours }}" required>
+
+                <button type="submit">
+                    Predict Student Performance
+                </button>
+
+            </form>
+
+            {% if result %}
+            <div class="result">
+                <h3>Prediction Result</h3>
+                <p><strong>Student:</strong> {{ student_name }}</p>
+                <p><strong>Performance:</strong> {{ result }}</p>
+                <p><strong>Recommendation:</strong> {{ advice }}</p>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+<section style="
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+">
+    <h2>About This Project</h2>
+
+    <p style="margin-top: 12px; line-height: 1.7;">
+        The Student Performance Prediction System is a
+        Machine Learning based web application that analyzes
+        students' academic details to predict their performance.
+    </p>
+
+    <h3 style="margin-top: 20px; color: #1e3a8a;">
+        Factors Used for Prediction
+    </h3>
+
+    <ul style="margin: 12px 0 0 20px; line-height: 2;">
+        <li>Previous examination marks</li>
+        <li>Attendance percentage</li>
+        <li>Daily study hours</li>
+    </ul>
+
+    <h3 style="margin-top: 20px; color: #1e3a8a;">
+        Prediction Categories
+    </h3>
+
+    <ul style="margin: 12px 0 0 20px; line-height: 2;">
+        <li>Good Performance</li>
+        <li>Average Performance</li>
+        <li>Needs Improvement</li>
+    </ul>
+
+    <h3 style="margin-top: 20px; color: #1e3a8a;">
+        Machine Learning Algorithm
+    </h3>
+
+    <p style="margin-top: 10px; line-height: 1.7;">
+    This project uses the K-Nearest Neighbors (KNN)
+    algorithm to compare student information with
+    existing dataset records and predict academic
+    performance based on the three nearest records.
+</p>
+</section>
+
+    <footer>
+        Student Performance Prediction System | Mini Project
+    </footer>
+
+</body>
+</html>
