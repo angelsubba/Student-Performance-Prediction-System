@@ -58,6 +58,8 @@ How to Run the Project
 6. Open this address in your browser:
    
    "http://127.0.0.1:5000"
+   
+8. Open the deployed website using the Live Website link provided below.
 
 Project Files
 
