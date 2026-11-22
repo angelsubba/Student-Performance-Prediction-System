@@ -72,3 +72,9 @@ Project Files
 Conclusion
 
 This project demonstrates how Machine Learning can help analyze student academic performance and provide useful recommendations for improvement.
+
+Live Website
+
+You can access the Student Performance Prediction System online:
+
+Live Website: https://student-performance-prediction-system-b8zs.onrender.com
